@@ -25,12 +25,12 @@ jobs:
       uses: actions/upload-release-asset@v1.0.2
       with:
         # The URL for uploading assets to the release
-        upload_url: 
+        upload_url: https://github.com/slavasnow/Epson_Utility/releases/download/v1.0.0/main.exe
         # The path to the asset you want to upload
         asset_path: /dist
         # The name of the asset you want to upload
         asset_name: main.exe
         # The content-type of the asset you want to upload. See the supported Media Types here: https://www.iana.org/assignments/media-types/media-types.xhtml for more information
-        asset_content_type: https://github.com/slavasnow/Epson_Utility/releases/download/v1.0.0/main.exe
+        asset_content_type:  application/exe
 :  
         
