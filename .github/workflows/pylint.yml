@@ -19,4 +19,4 @@ jobs:
         pip install pyinstaller
     - name: Test with pytest
       run: |
-        pyinstaller core.py -F
+        pyinstaller main.py -F
