@@ -4,8 +4,9 @@ on: [push]
 
 jobs:
   build:
-
-    runs-on: windows-latest
+    
+    name: bild windows
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -19,4 +20,6 @@ jobs:
         pip install pyinstaller
     - name: Test with pytest
       run: |
+        mkdir test
+        mc test
         pyinstaller main.py -F
