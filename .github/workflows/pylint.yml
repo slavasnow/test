@@ -6,7 +6,7 @@ jobs:
   build:
     
     name: bild windows
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -21,4 +21,16 @@ jobs:
     - name: Test with pytest
       run: |
         pyinstaller main.py -F
+    - name: Upload a Release Asset
+      uses: actions/upload-release-asset@v1.0.2
+      with:
+        # The URL for uploading assets to the release
+        upload_url: 
+        # The path to the asset you want to upload
+        asset_path: /dist
+        # The name of the asset you want to upload
+        asset_name: main.exe
+        # The content-type of the asset you want to upload. See the supported Media Types here: https://www.iana.org/assignments/media-types/media-types.xhtml for more information
+        asset_content_type: https://github.com/slavasnow/Epson_Utility/releases/download/v1.0.0/main.exe
+:  
         
