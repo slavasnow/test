@@ -21,15 +21,22 @@ jobs:
     - name: Test with pytest
       run: |
         pyinstaller main.py -F
-    - name: Upload a Release Asset
-      uses: actions/upload-release-asset@v1.0.2
+    - name: Create a Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        # The URL for uploading assets to the release
-        upload_url: https://github.com/slavasnow/Epson_Utility/releases/download/v1.0.0/main.exe
-        # The path to the asset you want to upload
-        asset_path: .\dist\main.exe
-        # The name of the asset you want to upload
-        asset_name: main.exe
-        # The content-type of the asset you want to upload. See the supported Media Types here: https://www.iana.org/assignments/media-types/media-types.xhtml for more information
-        asset_content_type:  application/exe
+        # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
+        tag_name: ${{ github.ref }}
+        # The name of the release. For example, `Release v1.0.1`
+        release_name: Release ${{ github.ref }}
+        # Text describing the contents of the tag.
+        body: false # optional
+        # Path to file with information about the tag.
+        body_path: false # optional
+        # `true` to create a draft (unpublished) release, `false` to create a published one. Default: `false`
+        draft: false # optional
+        # `true` to identify the release as a prerelease. `false` to identify the release as a full release. Default: `false`
+        prerelease: false # optional
+        # Any branch or commit SHA the Git tag is created from, unused if the Git tag already exists. Default: SHA of current commit
         
